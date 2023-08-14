@@ -52,7 +52,7 @@ class HttpClient implements IHttpClient {
 			})
 	}
 
-// login and signUp functions could be combined into one since the only difference is the url we're sending a request to..
+	// login and signUp functions could be combined into one since the only difference is the url we're sending a request to..
 	signUp(userInfo: User) {
 		return this.axiosInstance({ method: 'post', url: `${process.env.REACT_APP_SERVER_URL}/api/users`, data: userInfo})
 			.then((serverResponse: AxiosResponse) => {

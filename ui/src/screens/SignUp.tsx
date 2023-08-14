@@ -52,6 +52,7 @@ export const SignUp = ({signUp, signUpSuccess, setSignUpSuccess, signUpErrorMess
 	}, [signUpSuccess, setSignUpSuccess, setSignUpErrorMessage, navigate]);
 	
 	const { name, email, password } = state.fields;
+
 	return (
 		<div className='SignUp'>
 			<div className='row'>
@@ -71,6 +72,7 @@ export const SignUp = ({signUp, signUpSuccess, setSignUpSuccess, signUpErrorMess
 		</div>
 	)
 }
+
 interface IState {
 	user: {
 		currentUser: User;
@@ -78,6 +80,7 @@ interface IState {
 		signUpErrorMessage: string;
 	}
 }
+
 const mapStateToProps = (state: IState) => {
 	return {
 		currentUser: state.user.currentUser,
@@ -93,4 +96,5 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => {
 		setSignUpErrorMessage: (data: string) => dispatch(setSignUpErrorMessage(data))
 	};
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

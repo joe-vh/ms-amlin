@@ -10,11 +10,11 @@ type Props = {
 	logInSuccess: boolean;
 }
 export const LogIn = ({logIn, logInSuccess, setLogInSuccess}: Props) => {
-	const navigate = useNavigate();
 	const [state, setState] = useState({
 		fields: { email: '', password: ''}
 	});
 
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		setLogInSuccess(false);
@@ -43,21 +43,22 @@ export const LogIn = ({logIn, logInSuccess, setLogInSuccess}: Props) => {
 		}
 	}, [logInSuccess, navigate, setLogInSuccess]);
 
-		const { email, password } = state.fields
-		return (
-			<div className='LogIn'>
-				<div className='row'>
-					<div className='column column-33 column-offset-33'>
-						<h1>Log In</h1>
-						<form onChange={onInputChange} onSubmit={onFormSubmit}>
-							<input type="text" placeholder="Email" name="email" value={email} />
-							<input type="password" placeholder="Password" name="password" value={password} />
-							<button>Log In</button>
-						</form>
-					</div>
+	const { email, password } = state.fields;
+
+	return (
+		<div className='LogIn'>
+			<div className='row'>
+				<div className='column column-33 column-offset-33'>
+					<h1>Log In</h1>
+					<form onChange={onInputChange} onSubmit={onFormSubmit}>
+						<input type="text" placeholder="Email" name="email" value={email} />
+						<input type="password" placeholder="Password" name="password" value={password} />
+						<button>Log In</button>
+					</form>
 				</div>
 			</div>
-		)
+		</div>
+	)
 }
 
 interface IState {
@@ -66,6 +67,7 @@ interface IState {
 		logInSuccess: boolean;
 	}
 }
+
 const mapStateToProps = (state: IState)  => {
 	return {
 		currentUser: state.user.currentUser,
@@ -79,4 +81,5 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => {
 		setLogInSuccess: (data: boolean) => dispatch(setLogInSuccess(data))
 	};
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn)

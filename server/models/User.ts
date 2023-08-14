@@ -19,8 +19,8 @@ export class User extends Model <UserAttributes, UserCreationAttributes> impleme
 
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
-
 }
+
 User.init({
     id: {
         type: DataTypes.INTEGER,

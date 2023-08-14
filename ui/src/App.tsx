@@ -17,6 +17,7 @@ interface Props {
     currentUser: User;
     loadUser: Function;
 }
+
 function App({currentUser, loadUser}: Props) {
     useEffect(() => {
         loadUser();
@@ -63,4 +64,5 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => {
         loadUser: () => dispatch(loadUser())
     };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
