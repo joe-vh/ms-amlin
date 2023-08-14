@@ -4,11 +4,13 @@ import {setLogInSuccess, logIn} from "../store/user/actions";
 import {connect} from "react-redux";
 import {ThunkDispatch} from "redux-thunk";
 import {User} from "../store/user/User";
+
 type Props = {
 	logIn: Function;
 	setLogInSuccess: Function;
 	logInSuccess: boolean;
 }
+
 export const LogIn = ({logIn, logInSuccess, setLogInSuccess}: Props) => {
 	const [state, setState] = useState({
 		fields: { email: '', password: ''}
