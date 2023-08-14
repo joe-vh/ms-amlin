@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const User_1 = __importDefault(require("../models/User"));
 const signToken_1 = require("../auth/signToken");
+// function for verifying tokens
 async function verifyToken(req, res, next) {
     // grab token from either headers, req.body, or query string
     const token = req.get('token') || req.body.token || req.query.token;

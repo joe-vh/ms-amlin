@@ -2,11 +2,13 @@ import jwt from 'jsonwebtoken';
 import User from '../models/User';
 import {Request, Response, NextFunction} from "express";
 import {JWT_SECRET} from '../auth/signToken';
-// function for verifying tokens
+
 interface AuthRequest extends Request {
 	user?: User;
 	token?: string;
 }
+
+// function for verifying tokens
 async function verifyToken(req: AuthRequest, res: Response, next: NextFunction) {
 	// grab token from either headers, req.body, or query string
 	const token = req.get('token') || req.body.token || req.query.token
