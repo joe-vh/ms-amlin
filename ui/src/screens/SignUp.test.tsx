@@ -21,12 +21,12 @@ describe('test SignUp screen', () => {
 
     test('should trigger prop when sign up is clicked', () => {
         const mockSignUp = jest.fn();
+
         render(<SignUp signUp={mockSignUp} setSignUpSuccess={() => null} setSignUpErrorMessage={() => null}
                        signUpSuccess={false} signUpErrorMessage={''}/>);
 
-        fireEvent.click(screen.getByRole('button', {name: /Sign Up/i}))
-
-        expect(mockSignUp).toHaveBeenCalledTimes(1)
+        fireEvent.click(screen.getByRole('button', {name: /Sign Up/i}));
+        expect(mockSignUp).toHaveBeenCalledTimes(1);
     });
 
     test('should display text in email field', () => {
@@ -34,13 +34,13 @@ describe('test SignUp screen', () => {
                        signUpSuccess={false} signUpErrorMessage={''}/>);
 
         userEvent.type(screen.getByPlaceholderText('Email'), 'test@mail.com');
-
         expect(screen.getByPlaceholderText('Email')).toHaveValue('test@mail.com');
     });
 
     test('renders signUpErrorMessage', () => {
         render(<SignUp signUp={() => null} setSignUpSuccess={() => null} setSignUpErrorMessage={() => null}
                        signUpSuccess={false} signUpErrorMessage={'Validation error'}/>);
+
         const signUpErrorMessage = screen.getByText(/Validation error/i);
         expect(signUpErrorMessage).toBeInTheDocument();
     });
