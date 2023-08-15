@@ -7,6 +7,7 @@ describe('test SignUp screen', () => {
     test('renders SignUp screen', () => {
         render(<SignUp signUp={() => null} setSignUpSuccess={() => null} setSignUpErrorMessage={() => null}
                        signUpSuccess={false} signUpErrorMessage={''}/>);
+
         const signUpTitle = screen.getByText(/Sign Up/i);
         expect(signUpTitle).toBeInTheDocument();
         const signUpName = screen.getByPlaceholderText('Name');
