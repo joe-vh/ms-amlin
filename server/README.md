@@ -1,1 +1,1 @@
-# ms-amlin typescript server
+# ms-amlin TypeScript server
