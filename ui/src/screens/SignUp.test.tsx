@@ -30,8 +30,7 @@ describe('test SignUp screen', () => {
     });
 
     test('should display text in email field', () => {
-        const mockSignUp = jest.fn();
-        render(<SignUp signUp={mockSignUp} setSignUpSuccess={() => null} setSignUpErrorMessage={() => null}
+        render(<SignUp signUp={() => null} setSignUpSuccess={() => null} setSignUpErrorMessage={() => null}
                        signUpSuccess={false} signUpErrorMessage={''}/>);
 
         userEvent.type(screen.getByPlaceholderText('Email'), 'test@mail.com');
