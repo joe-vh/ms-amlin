@@ -1,1 +1,1 @@
-# ms-amlin typescript client
+# example typescript client
